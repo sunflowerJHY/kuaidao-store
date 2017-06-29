@@ -1,0 +1,46 @@
+头部引入
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4VTX4GV6tGH4y4bjBXAQd5zSX4zBdySm"></script>
+
+可参照卡兹奇克脆脆鸡PC官网联系我们页面
+
+尾部引入
+<script type="text/javascript" src="libs/js/skrollr.min.js"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/custom/stylelist.js"></script>
+
+调用方法
+        skrollr.init({
+            smoothScrolling: false,
+            mobileDeceleration: 0.004
+        });
+        var map1 = new BMap.Map("map1");            // 创建Map实例
+        var point1 = new BMap.Point(120.338629, 36.090345);    //获取到的坐标
+        map1.centerAndZoom(point1,18);
+        var marker1 = new BMap.Marker(point1);  // 创建标注
+        map1.addOverlay(marker1);               // 将标注添加到地图中
+        marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+        map1.enableScrollWheelZoom();                  //启用滚轮放大缩小
+
+网址定位代码获取
+http://api.map.baidu.com/lbsapi/creatmap/index.html?qq-pf-to=pcqq.c2c
+在上面网址中定位好位置
+然后复制红框中的数值
+
+
+
+
+
+html
+
+		<ul>
+                      <li>
+                            <div id="map1"></div>
+                        </li>
+                        <li>
+                            <div id="map2"></div>
+                        </li>
+                        <li>
+                            <div id="map3"></div>
+                        </li>
+                        
+                    </ul>
+

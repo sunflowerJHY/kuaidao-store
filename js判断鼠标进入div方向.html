@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS用斜率判断鼠标进入DIV四个方向的方法</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #3295F2;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="div1" tabindex="1"></div>
+    <script>
+       window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var x1 = oDiv.offsetLeft,
+                y1 = -oDiv.offsetTop, //注意坐标，所有的y坐标都是负数
+                x2 = x1 + oDiv.offsetWidth,
+                y2 = y1 - oDiv.offsetHeight, //同样y坐标为负数
+                x0 = (x1 + x2) / 2,
+                y0 = (y1 + y2) / 2;
+            var k = (y2 - y1) / (x2 - x1); //斜率k
+            // alert(-k)
+            oDiv.onmouseover = function (e) {
+                var e = e || window.event;
+                var x = e.clientX, //鼠标刚移入div内，记录下当前的x坐标
+                    y = -e.clientY; //鼠标刚移入div内，记录下当前的y坐标
+                var K = (y - y0) / (x - x0); //K是鼠标移入点和中心点的斜率
+                //当K大于k并且小于-k时，则肯定是左右移入，当移入点的x坐标大于中心点 ，则为右移入，小于则是左移入
+                if (k < K && K < -k) {
+                    if (x > x0) {
+                        alert('右');
+                    } else {
+                        alert('左');
+                    }
+                } else {
+                    //注意此处y是负数，判断上下的方法同上
+                    if (y > y0) {
+                        alert('上');
+                    } else {
+                        alert('下');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html> 

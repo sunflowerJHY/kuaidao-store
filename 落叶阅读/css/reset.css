@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, table, td, th, form, fieldset, img, dl, dt, dd { margin:0; padding:0; }
+textarea, input, select, body { font-size:12px; }
+select, input { vertical-align:middle; }
+fieldset, img { border:0; }
+ul, ol { list-style:none; }
+a { text-decoration:none; color:#000; }
+a:hover { color:#ffa10d; }
+.fl { float:left; display:inline; }
+.fr { float:right; display:inline; }
+.cb { clear:both; display:block; height:0px; overflow:hidden; width:100%; }
+.clearfix:after { clear:both; content:""; display:block; height:0; }
